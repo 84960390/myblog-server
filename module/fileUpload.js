@@ -9,6 +9,7 @@ fileUpload.post('/file', (req, res) => {
     let form = new multiparty.Form();
     form.uploadDir = filePath;
     form.parse(req, (err, fileds, files) => {
+        console.log(req)
         try {
             if(err) throw '上传失败'
             let file = Object.values(files)[0][0];
