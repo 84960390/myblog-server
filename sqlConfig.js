@@ -26,7 +26,8 @@ const config={
     port:'3306',
     user:'root',
     password:'admin',
-    database:'blog'
+    database:'blog',
+    multipleStatements:true
 }
 module.exports={
 

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0950fc39.css",
+    "main.js": "/static/js/main.c7219b87.js",
+    "static/js/787.f587e8d5.chunk.js": "/static/js/787.f587e8d5.chunk.js",
+    "static/media/backgroundImg.jpeg": "/static/media/backgroundImg.bcdee40d765a26258b1b.jpeg",
+    "static/media/game.jpeg": "/static/media/game.4135af2b54338d7b742e.jpeg",
+    "static/media/cartoon.jpeg": "/static/media/cartoon.d25775493b12c8704d9a.jpeg",
+    "static/media/technical.jpg": "/static/media/technical.3674534b711632c9034a.jpg",
+    "static/media/makabaka.jpeg": "/static/media/makabaka.28ca047bd740f0775c7c.jpeg",
+    "static/media/scene.jpg": "/static/media/scene.1b2687d634f7146c664c.jpg",
+    "static/media/wechat.jpg": "/static/media/wechat.f8a05fa2dc0597b7a277.jpg",
+    "static/media/qq.jpg": "/static/media/qq.2b3b49107353686c59d0.jpg",
+    "index.html": "/index.html",
+    "main.0950fc39.css.map": "/static/css/main.0950fc39.css.map",
+    "main.c7219b87.js.map": "/static/js/main.c7219b87.js.map",
+    "787.f587e8d5.chunk.js.map": "/static/js/787.f587e8d5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0950fc39.css",
+    "static/js/main.c7219b87.js"
+  ]
+}

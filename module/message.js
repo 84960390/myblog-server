@@ -17,13 +17,16 @@ message.post('/addMessage',(req,res)=>{
          res.status(400).send(err)
     }
 })
-// 获取所有信息
+// 分页获取所有信息
 message.get('/getAllMessage',(req,res)=>{
+    let page=req.query.page||1;
+    let size=req.query.size||10;
         try{
-            db.query('select * from message order by create_time desc',(err,results)=>{
+            db.query('select * from message order by create_time desc limit ?, ?;select count(*) as total from message',[(page-1)*size,size*1],(err,results)=>{
                 if(results.length==0) return res.status(400).send('暂无数据')
                 res.send({
-                    data:results,
+                    data:results[0],
+                    total:results[1][0].total
                 })
             })
         }catch(err){

@@ -1,11 +1,12 @@
 const express=require('express');
-const { query } = require('../sqlConfig');
 const article=express.Router();
 const db=require('../sqlConfig');
-// 获取所有文章
-article.get('/getArticle',(req,res)=>{
+// 根据id获取文章
+article.get('/getArticleById',(req,res)=>{
+    console.log(req.query)
     try{
         db.query('select * from article where id=?',[req.query.id],(err,results)=>{
+            console.log(results)
             if(results.length==0) return res.status(400).send('暂无数据')
             res.send({
                 data:results[0],
@@ -16,15 +17,17 @@ article.get('/getArticle',(req,res)=>{
     }
 })
 // 分页获取文章
-article.get('/getAllArticle',(req,res)=>{
+article.get('/getArticle',(req,res)=>{
     let page=req.query.page||1;
-    let size=req.query.size||20;
+    let size=req.query.size||10;
     // limit后必须为int
     try{
-        db.query('select id,title,type,describes,create_time from article limit ?, ?',[(page-1)*size,size*1],(err,results)=>{
+        db.query('select id,title,type,describes,create_time from article order by create_time desc limit ?, ?;select count(*) as total from article',[(page-1)*size,size*1],(err,results)=>{
             if(results.length==0) return res.status(400).send('暂无数据')
+            console.log(results)
             res.send({
-                data:results,
+                data:results[0],
+                total:results[1][0].total
             })
         })
     }catch(err){

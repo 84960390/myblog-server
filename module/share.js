@@ -19,13 +19,16 @@ share.post('/addShare',(req,res)=>{
          res.status(400).send(err)
     }
 })
+// 分页获取说说
 share.get('/getAllShare',(req,res)=>{
+    let page=req.query.page||1;
+    let size=req.query.size||10;
         try{
-            db.query('select * from share order by create_time desc',(err,results)=>{
-                // console.log(results)
+            db.query('select * from share order by create_time desc limit ?, ?;select count(*) as total from share',[(page-1)*size,size*1],(err,results)=>{
                 if(results.length==0) return res.status(400).send('暂无数据')
                 res.send({
-                    data:results,
+                    data:results[0],
+                    total:results[1][0].total
                 })
             })
         }catch(err){
